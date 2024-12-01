@@ -109,7 +109,7 @@ dual_bottom = "no"; // [no:No, yes:Yes]
 /* [Printer-Specific] */
 
 // Should extra reinforcement be included to make printing on an FDM printer easier? Ignored for tiles, since they're printed upside-down and don't need the reinforcement. Recommended for block heights less than 1 or for Duplo bricks. 
-use_reinforcement = "no"; // [no:No, yes:Yes]
+use_reinforcement = "yes"; // [no:No, yes:Yes]
 
 // If your printer prints the blocks correctly except for the stud diameter, use this variable to resize just the studs for your printer. A value of 1.05 will print the studs 105% wider than standard.
 stud_rescale = 1.03; // [0.51:0.01:1.49]
@@ -168,7 +168,7 @@ module block(
     include_wall_splines=true,
     horizontal_holes=false,
     vertical_axle_holes=false,
-    reinforcement=false,
+    reinforcement=true,
     wing_type="full",
     wing_end_width=2,
     wing_base_length=2,
@@ -206,7 +206,7 @@ module block(
     spline_length = (brand == "lego" ? 0.25 : 1.7);
     spline_thickness = (brand == "lego" ? 0.7 : 1.3);
 
-    horizontal_hole_diameter = (brand == "lego" ? 4.8 : 4.8 * 2);
+    horizontal_hole_diameter = (brand == "lego" ? 5.0 : 4.8 * 2);
     horizontal_hole_z_offset = (brand == "lego" ? 5.8 : 5.8 * 2);
     horizontal_hole_bevel_diameter = (brand == "lego" ? 6.2 : 6.2 * 2);
     horizontal_hole_bevel_depth = (brand == "lego" ? 0.9 : 0.9 * 1.5 / 1.2 );
@@ -214,8 +214,8 @@ module block(
     roof_thickness = (type == "baseplate" || dual_sided ? block_height * height : 1 * 1);
 
     // Duplo axle dimensions are based on "Early Simple Machines Set 9656"
-    axle_spline_width = (brand == "lego" ? 2.0 : 3.10);
-    axle_diameter = (brand == "lego" ? 5 * 1 : 7.25);
+    axle_spline_width = (brand == "lego" ? 2.1 : 3.10);
+    axle_diameter = (brand == "lego" ? 5 * 1.1 : 7.25);
 
     // Brand-independent measurements.
     wall_play = 0.1 * 1;
