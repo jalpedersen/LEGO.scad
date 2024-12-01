@@ -259,7 +259,8 @@ module block(
     real_curve_end_height = max(0, min(real_height - 1/3, curve_end_height));
     real_horizontal_holes = horizontal_holes && ((type == "baseplate" && real_height >= 8) || real_height >= 1) && !dual_sided;
     real_vertical_axle_holes = vertical_axle_holes && real_width > 1;
-    real_reinforcement = reinforcement && type != "baseplate" && type != "tile" && !dual_sided;
+    //real_reinforcement = reinforcement && type != "baseplate" && type != "tile" && !dual_sided;
+    real_reinforcement = reinforcement && type != "baseplate" && !dual_sided;
 
     real_roadway_width = max(0, min(roadway_width, real_width));
     real_roadway_length = max(0, min(roadway_length, real_length));
